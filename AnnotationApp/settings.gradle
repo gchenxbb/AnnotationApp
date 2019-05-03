@@ -1,1 +1,1 @@
-include ':app', ':annotions-complier', ':annotions-libs'
+include ':app', ':complier-lib', ':annotions-lib'

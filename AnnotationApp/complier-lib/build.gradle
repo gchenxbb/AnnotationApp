@@ -1,0 +1,14 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //自动生成 META-INF
+    compile 'com.google.auto.service:auto-service:1.0-rc3'
+    //动态生成Java 代码
+    compile 'com.squareup:javapoet:1.9.0'
+    implementation project(':annotions-lib')
+
+}
+
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"
