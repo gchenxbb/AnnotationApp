@@ -1,2 +1,6 @@
 AnnotationApp/complier-lib/build/
 AnnotationApp/build/
+.gradle/
+annotions-lib/build/
+complier-lib/build/
+build/
