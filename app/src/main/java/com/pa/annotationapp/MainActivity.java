@@ -15,7 +15,6 @@ import java.lang.reflect.Method;
 
 import com.pa.annotions.*;
 
-import chen.pa.com.annotationapp.R;
 
 @AnnotationClass(authorName = "chen", createTime = "2019年")
 public class MainActivity extends Activity {

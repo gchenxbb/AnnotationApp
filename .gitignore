@@ -4,3 +4,6 @@ AnnotationApp/build/
 annotions-lib/build/
 complier-lib/build/
 build/
+AnnoProcess.iml
+annotions-lib/annotions-lib.iml
+complier-lib/complier-lib.iml
