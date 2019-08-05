@@ -26,6 +26,8 @@ public class MainActivity extends Activity {
     @BindViews(R.id.tv_message)
     TextView mTextView;
 
+    StringBuilder stringBuilder = new StringBuilder();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,22 +39,25 @@ public class MainActivity extends Activity {
                 GeneratedClass generatedClass = new GeneratedClass();
                 String info = generatedClass.getMessage();
                 Toast.makeText(MainActivity.this, "info:" + info, Toast.LENGTH_SHORT).show();
+                mTextView.setText(stringBuilder.toString());
             }
         });
-        printAnno();
+        printAnnotation();
     }
 
     @AnnotationMethod(name = "initView方法")
     private void initView(Context context) {
     }
 
-    //运行时打印
-    private void printAnno() {
+    //运行时注解打印，包括方法注解、类注解和变量注解
+    private void printAnnotation() {
         try {
             Method method = MainActivity.class.getDeclaredMethod("initView", Context.class);
             AnnotationMethod appAnnot = method.getAnnotation(AnnotationMethod.class);
             if (appAnnot != null) {
                 Toast.makeText(this, "method:" + method.getName() + ",name:" + appAnnot.name(), Toast.LENGTH_SHORT).show();
+                stringBuilder.append("method:" + method.getName() + ",name:" + appAnnot.name());
+                stringBuilder.append("\n");
             }
         } catch (NoSuchMethodException e) {
         }
@@ -62,21 +67,18 @@ public class MainActivity extends Activity {
             AnnotationField appAnnot = field.getAnnotation(AnnotationField.class);
             if (appAnnot != null) {
                 Toast.makeText(this, "field:" + field.getName() + ",mSuccessMsg:" + appAnnot.descInfo(), Toast.LENGTH_SHORT).show();
+                stringBuilder.append("field:" + field.getName() + ",mSuccessMsg:" + appAnnot.descInfo());
+                stringBuilder.append("\n");
             }
         } catch (NoSuchFieldException e) {
             e.printStackTrace();
         }
         //只有运行时注解才能获取到
-        Annotation annotationClass = MainActivity.class.getAnnotation(AnnotationClass.class);
+        AnnotationClass annotationClass = this.getClass().getAnnotation(AnnotationClass.class);
         if (annotationClass != null) {
-            annotationClass.annotationType();
-        }
-
-        try {
-            Method[] method = MainActivity.class.getDeclaredMethods();
-            int i = method.length;
-        } catch (NoSuchMethodError e) {
-            e.printStackTrace();
+            stringBuilder.append("createTime:" + annotationClass.createTime() + ",author:" + annotationClass.authorName());
+            stringBuilder.append("\n");
+            Toast.makeText(this, "createTime:" + annotationClass.createTime() + ",author:" + annotationClass.authorName(), Toast.LENGTH_SHORT).show();
         }
     }
 
