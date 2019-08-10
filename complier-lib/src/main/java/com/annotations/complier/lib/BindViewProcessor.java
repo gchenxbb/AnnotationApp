@@ -1,8 +1,7 @@
-package com.pa.complier.lib;
-
+package com.annotations.complier.lib;
 
 import com.google.auto.service.AutoService;
-import com.pa.annotions.*;
+import com.annotations.lib.*;
 
 import java.io.IOException;
 import java.io.Writer;
@@ -19,7 +18,7 @@ import javax.tools.JavaFileObject;
 
 
 //注解处理器，编译时，编译器会自动查找所有继承AbstractProcessor的类，触发process方法
-@SupportedAnnotationTypes({"com.pa.annotions.BindViews"})//注解类路径
+@SupportedAnnotationTypes({"com.annotations.lib.BindViews"})//注解类路径
 @AutoService(Processor.class)
 public class BindViewProcessor extends AbstractProcessor {
     private static HashMap<String, String> hashMap;
@@ -29,7 +28,7 @@ public class BindViewProcessor extends AbstractProcessor {
         System.out.println("2日志打印开始:");
 
         StringBuilder builder = new StringBuilder()
-                .append("package com.pa.annotationprocessor.generated;\n\n")
+                .append("package com.annotations.generated;\n\n")
                 .append("public class BindViews_Bind {\n\n") // open class
                 .append("\tpublic String getMessage() {\n") // open method
                 .append("\t\treturn \"");
@@ -49,7 +48,7 @@ public class BindViewProcessor extends AbstractProcessor {
 
 
         try { // write the file
-            JavaFileObject source = processingEnv.getFiler().createSourceFile("com.pa.annotationprocessor.generated.BindViews_Bind");
+            JavaFileObject source = processingEnv.getFiler().createSourceFile("com.annotations.generated.BindViews_Bind");
 
 
             Writer writer = source.openWriter();

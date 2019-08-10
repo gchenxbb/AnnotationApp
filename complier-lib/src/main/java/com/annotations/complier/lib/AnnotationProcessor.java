@@ -1,8 +1,7 @@
-package com.pa.complier.lib;
-
+package com.annotations.complier.lib;
 
 import com.google.auto.service.AutoService;
-import com.pa.annotions.*;
+import com.annotations.lib.*;
 
 import java.io.IOException;
 import java.io.Writer;
@@ -17,10 +16,9 @@ import javax.lang.model.element.Element;
 import javax.lang.model.element.TypeElement;
 import javax.tools.JavaFileObject;
 
-
 //注解处理器，编译时，编译器会自动查找所有继承AbstractProcessor的类，触发process方法
-@SupportedAnnotationTypes({"com.pa.annotions.AnnotationClass",
-        "com.pa.annotions.AnnotationField"})//注解类路径
+@SupportedAnnotationTypes({"com.annotations.lib.AnnotationClass",
+        "com.annotations.lib.AnnotationField"})//注解类路径
 @AutoService(Processor.class)
 public class AnnotationProcessor extends AbstractProcessor {
     private static HashMap<String, String> hashMap;
@@ -30,7 +28,7 @@ public class AnnotationProcessor extends AbstractProcessor {
         System.out.println("日志打印开始:" );
 
         StringBuilder builder = new StringBuilder()
-                .append("package com.pa.annotationprocessor.generated;\n\n")
+                .append("package com.annotations.generated;\n\n")
                 .append("public class GeneratedClass {\n\n") // open class
                 .append("\tpublic String getMessage() {\n") // open method
                 .append("\t\treturn \"");
@@ -58,7 +56,7 @@ public class AnnotationProcessor extends AbstractProcessor {
 
 
         try { // write the file
-            JavaFileObject source = processingEnv.getFiler().createSourceFile("com.pa.annotationprocessor.generated.GeneratedClass");
+            JavaFileObject source = processingEnv.getFiler().createSourceFile("com.annotations.generated.GeneratedClass");
 
 
             Writer writer = source.openWriter();
