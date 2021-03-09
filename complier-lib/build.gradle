@@ -3,9 +3,9 @@ apply plugin: 'java-library'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //自动生成 META-INF
-    compile 'com.google.auto.service:auto-service:1.0-rc3'
+    api 'com.google.auto.service:auto-service:1.0-rc3'
     //动态生成Java 代码
-    compile 'com.squareup:javapoet:1.9.0'
+    api 'com.squareup:javapoet:1.9.0'
     implementation project(':annotions-lib')
 
 }

@@ -16,7 +16,9 @@ import javax.lang.model.element.Element;
 import javax.lang.model.element.TypeElement;
 import javax.tools.JavaFileObject;
 
-//注解处理器，编译时，编译器会自动查找所有继承AbstractProcessor的类，触发process方法
+/**
+ * 注解处理器，编译时，编译器会自动查找所有继承AbstractProcessor的类，触发process方法
+ */
 @SupportedAnnotationTypes({"com.annotations.lib.AnnotationClass",
         "com.annotations.lib.AnnotationField"})//注解类路径
 @AutoService(Processor.class)
