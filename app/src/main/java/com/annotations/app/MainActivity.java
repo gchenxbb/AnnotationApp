@@ -1,5 +1,6 @@
 package com.annotations.app;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import com.annotations.lib.*;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * 注解类
@@ -28,13 +30,19 @@ public class MainActivity extends Activity {
     //注解变量
     @AnnotationField(descInfo = "成功信息")
     String mSuccessMsg;
-
     @MyBindView(R.id.tv_message)
     TextView mTextView;
 
-
-    @BindView(R.id.tv_bind)
-    TextView mTvBind;
+    @BindView(R.id.tv_bind1)
+    TextView mTvBind1;
+    @BindView(R.id.tv_bind2)
+    TextView mTvBind2;
+    @BindView(R.id.tv_bind3)
+    TextView mTvBind3;
+    @BindView(R.id.tv_bind4)
+    TextView mTvBind4;
+    @BindView(R.id.tv_bind5)
+    TextView mTvBind5;
 
     StringBuilder sb = new StringBuilder();
 
@@ -60,8 +68,28 @@ public class MainActivity extends Activity {
 
             }
         });
+    }
 
-
+    @SuppressLint("NonConstantResourceId")
+    @OnClick({R.id.tv_bind1, R.id.tv_bind2, R.id.tv_bind3, R.id.tv_bind4, R.id.tv_bind5})
+    public void bindClick(View view) {
+        switch (view.getId()) {
+            case R.id.tv_bind1:
+                Toast.makeText(this, "bind1", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.tv_bind2:
+                Toast.makeText(this, "bind2", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.tv_bind3:
+                Toast.makeText(this, "bind3", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.tv_bind4:
+                Toast.makeText(this, "bind4", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.tv_bind5:
+                Toast.makeText(this, "bind5", Toast.LENGTH_SHORT).show();
+                break;
+        }
     }
 
     /**

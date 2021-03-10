@@ -11,11 +11,37 @@
         android:layout_height="wrap_content"
         android:text="点我，运行时注解" />
 
-
     <TextView
-        android:id="@+id/tv_bind"
+        android:id="@+id/tv_bind1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="binding" />
+
+    <TextView
+        android:id="@+id/tv_bind2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="binding2" />
+
+    <TextView
+        android:id="@+id/tv_bind3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="binding3" />
+    <TextView
+        android:id="@+id/tv_bind4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="binding4" />
+    <TextView
+        android:id="@+id/tv_bind5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="binding5" />
+
 </LinearLayout>
