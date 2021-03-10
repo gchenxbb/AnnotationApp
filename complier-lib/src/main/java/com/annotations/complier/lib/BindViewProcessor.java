@@ -36,7 +36,7 @@ public class BindViewProcessor extends AbstractProcessor {
 
 
         // for each javax.lang.model.element.Element annotated with the CustomAnnotation
-        for (Element element : roundEnvironment.getElementsAnnotatedWith(BindViews.class)) {
+        for (Element element : roundEnvironment.getElementsAnnotatedWith(MyBindView.class)) {
             String objectType = element.getSimpleName().toString();
             Object oBject = element.asType();
             // this is appending to the return statement

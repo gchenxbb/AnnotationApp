@@ -15,6 +15,9 @@ import java.lang.reflect.Method;
 
 import com.annotations.lib.*;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * 注解类
  */
@@ -26,8 +29,12 @@ public class MainActivity extends Activity {
     @AnnotationField(descInfo = "成功信息")
     String mSuccessMsg;
 
-    @BindViews(R.id.tv_message)
+    @MyBindView(R.id.tv_message)
     TextView mTextView;
+
+
+    @BindView(R.id.tv_bind)
+    TextView mTvBind;
 
     StringBuilder sb = new StringBuilder();
 
@@ -35,6 +42,9 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ButterKnife.bind(this);
+
         mTextView = findViewById(R.id.tv_message);
         mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
