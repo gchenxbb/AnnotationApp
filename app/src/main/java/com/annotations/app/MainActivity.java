@@ -16,6 +16,7 @@ import java.lang.reflect.Method;
 
 import com.annotations.lib.*;
 
+import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -44,6 +45,17 @@ public class MainActivity extends Activity {
     @BindView(R.id.tv_bind5)
     TextView mTvBind5;
 
+    @BindString(R.string.str_value1)
+    String mStrValue1;
+    @BindString(R.string.str_value2)
+    String mStrValue2;
+    @BindString(R.string.str_value3)
+    String mStrValue3;
+    @BindString(R.string.str_value4)
+    String mStrValue4;
+    @BindString(R.string.str_value5)
+    String mStrValue5;
+
     StringBuilder sb = new StringBuilder();
 
     @Override
@@ -65,7 +77,6 @@ public class MainActivity extends Activity {
                 GeneratedClass generatedClass = new GeneratedClass();
                 String info = generatedClass.getMessage();
                 Toast.makeText(MainActivity.this, "info:" + info, Toast.LENGTH_SHORT).show();
-
             }
         });
     }

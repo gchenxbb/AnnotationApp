@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">AnnotationApp</string>
+
+    <string name="str_value1">StrValue1</string>
+    <string name="str_value2">StrValue2</string>
+    <string name="str_value3">StrValue3</string>
+    <string name="str_value4">StrValue4</string>
+    <string name="str_value5">StrValue5</string>
+
 </resources>
